@@ -44,16 +44,18 @@ myfile.df$tstamp <- (strptime
                      (paste(myfile.df$Date, myfile.df$Time),
                       format="%F %T"))  
 ##plot3 - create and copy to png file
-par(mar = c(4,4,2,2))
+##manually set chart size to prevent legend truncation
+png(width=500, height=500, file="plot3.png")
 with(myfile.df, {plot(tstamp, Sub_metering_1, type="l", lwd=1.8,
                       ylab = "Energy Sub Metering", xlab="") 
-                 points(tstamp, Sub_metering_2, type="l", lwd=1.8, col = "red") 
-                 points(tstamp, Sub_metering_3, type="l", lwd=1.8,col = "blue") 
+        points(tstamp, Sub_metering_2, type="l", lwd=1.8, col = "red") 
+        points(tstamp, Sub_metering_3, type="l", lwd=1.8,col = "blue") 
                  
-                 legend("topright",  lwd=c(2,2,2), col = c("black", "blue", "red"), 
-                        legend = c("Sub_metering_1", "Sub_metering_2", 
-                                   "Sub_metering_3"))
+        legend("topright",  lwd=c(2,2,2), 
+               col = c("black", "blue", "red"), 
+                legend = c("Sub_metering_1", "Sub_metering_2", 
+                        "Sub_metering_3"))
 })
-
-dev.copy(png, file="plot3.png")
+##the copy distorted the legend so writing directly to png
+##dev.copy(png, file="plot3.png")        
 dev.off()
