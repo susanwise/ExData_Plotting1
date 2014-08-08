@@ -42,10 +42,10 @@ myfile.df$Date <- as.Date(myfile.df$Date, format="%d/%m/%Y")
 ##this creates timestamp in posixlt class to use for plotting
 myfile.df$tstamp <- (strptime
                      (paste(myfile.df$Date, myfile.df$Time),
-                      format="%F %T"))  
+                      format="%F %T"))   
 ##plot3 - create and copy to png file
 ##manually set chart size to prevent legend truncation
-png(width=504, height=504, file="plot3.png")
+png(width=480, height=480, file="plot3.png")
 with(myfile.df, {plot(tstamp, Sub_metering_1, type="l", lwd=1.8,
                       ylab = "Energy Sub Metering", xlab="") 
         points(tstamp, Sub_metering_2, type="l", lwd=1.8, col = "red") 

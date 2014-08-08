@@ -44,10 +44,11 @@ myfile.df$tstamp <- (strptime
                      (paste(myfile.df$Date, myfile.df$Time),
                       format="%F %T"))  
 ##plot2 - create and copy to png file
+png(width=480, height=480, file="plot2.png")
 par(mar = c(4,4,2,2))
 with(myfile.df, plot(tstamp, Global_active_power, type="l",
                      ylab = "Global Active Power (kilowatts)", 
                      xlab="" ))
 
-dev.copy(png, file="plot2.png")
+##dev.copy(png, file="plot2.png")
 dev.off()

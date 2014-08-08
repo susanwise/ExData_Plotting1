@@ -44,7 +44,7 @@ myfile.df$tstamp <- (strptime
                      (paste(myfile.df$Date, myfile.df$Time),
                       format="%F %T"))  
 ##plot4 - create and copy to png file
-png(width=504, height=504, file="plot4.png")
+png(width=480, height=480, file="plot4.png")
 par(mfcol = c(2,2), mar = c(4, 4, 4, 2), oma = c(1, 1, 0, 0)) 
 with(myfile.df, 
 {    
@@ -61,7 +61,7 @@ with(myfile.df,
         
         plot(tstamp, Voltage, type="l", xlab="datetime" )
         
-        plot(tstamp, myfile.df$Global_reactive_power, type="l",
+        plot(tstamp, myfile.df$Global_reactive_power, type="l", 
              ylab="Global_reactive_power",
              xlab="datetime")
         
