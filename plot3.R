@@ -45,7 +45,7 @@ myfile.df$tstamp <- (strptime
                       format="%F %T"))  
 ##plot3 - create and copy to png file
 ##manually set chart size to prevent legend truncation
-png(width=500, height=500, file="plot3.png")
+png(width=504, height=504, file="plot3.png")
 with(myfile.df, {plot(tstamp, Sub_metering_1, type="l", lwd=1.8,
                       ylab = "Energy Sub Metering", xlab="") 
         points(tstamp, Sub_metering_2, type="l", lwd=1.8, col = "red") 
